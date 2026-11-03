@@ -1,0 +1,168 @@
+
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Main page */
+#page3 {
+    position: relative;
+    isolation: isolate;
+    font-weight: bolder;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    min-height: 100vh;
+    padding: 30px 20px;
+    gap: 20px;
+
+    text-align: center;
+    color: #f10808;
+
+    background: linear-gradient(
+        135deg,
+        #f098c2,
+        #ffe0ed,
+        #f098c2
+    );
+
+    overflow: hidden;
+}
+
+/* Main heading */
+#page3 h1 {
+    color: #b00050;
+    font-size: 36px;
+    margin-bottom: 5px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Description */
+#page3 p {
+    color: #8f1749;
+    font-size: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Instruction */
+#page3 h2 {
+    color: #b00050;
+    font-size: 23px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Arrange penguins side by side */
+#page3 .penguin-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+/* Penguin images */
+#page3 .penguin {
+    width: 200px;
+    height: 220px;
+    object-fit: contain;
+
+    cursor: pointer;
+    transition: transform 0.3s ease;
+
+    position: relative;
+    z-index: 1;
+}
+
+/* Hover effect */
+#page3 .penguin:hover {
+    transform: scale(1.12);
+}
+
+/* Hearts covering the entire background */
+#page3 .hearts {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+
+    pointer-events: none;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: space-around;
+
+    font-size: 35px;
+    line-height: 2;
+    word-spacing: 15px;
+
+    opacity: 0.4;
+    overflow: hidden;
+}
+
+/* Tablet screens */
+@media (max-width: 850px) {
+    #page3 h1 {
+        font-size: 30px;
+    }
+
+    #page3 p {
+        font-size: 18px;
+    }
+
+    #page3 .penguin {
+        width: 170px;
+        height: 190px;
+    }
+
+    #page3 .penguin-grid {
+        gap: 20px;
+    }
+}
+
+/* Mobile screens */
+@media (max-width: 600px) {
+    #page3 {
+        padding: 25px 12px;
+        gap: 18px;
+    }
+
+    #page3 h1 {
+        font-size: 28px;
+    }
+
+    #page3 p {
+        font-size: 17px;
+    }
+
+    #page3 h2 {
+        font-size: 20px;
+    }
+
+    #page3 .penguin-grid {
+        gap: 15px;
+    }
+
+    #page3 .penguin {
+        width: 130px;
+        height: 160px;
+    }
+
+    #page3 .hearts {
+        font-size: 23px;
+        line-height: 2;
+        word-spacing: 8px;
+        opacity: 0.4;
+    }
+}

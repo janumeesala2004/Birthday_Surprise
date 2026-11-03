@@ -1,0 +1,166 @@
+
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Common page style */
+.page {
+    display: none;
+    width: 100%;
+    min-height: 100vh;
+    padding: 20px;
+
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+
+    position: relative;
+    overflow: hidden;
+}
+
+/* Show active page */
+.page.active {
+    display: flex;
+}
+
+/* Page 2 pink gradient background */
+#page2 {
+    background: linear-gradient(
+        135deg,
+        #f098c2,
+        #ffe0ed,
+        #f098c2
+    );
+}
+
+/* Heading */
+#page2 h1 {
+    color: #b00050;
+    font-size: 36px;
+    margin-bottom: 10px;
+
+    position: relative;
+    z-index: 1;
+}
+
+/* Crying penguin image */
+#page2 .penguin {
+    width: 250px;
+    max-width: 80%;
+    height: auto;
+
+    object-fit: contain;
+
+    position: relative;
+    z-index: 1;
+
+    animation: sadPenguin 2s infinite ease-in-out;
+}
+
+/* Penguin animation */
+@keyframes sadPenguin {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Try Again button */
+#page2 button {
+    position: relative;
+    z-index: 1;
+
+    background-color: #ff4f91;
+    color: white;
+
+    border: 2px solid white;
+    border-radius: 25px;
+
+    padding: 14px 30px;
+
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: 0.3s ease;
+}
+
+/* Button hover effect */
+#page2 button:hover {
+    background-color: #e6005c;
+    transform: scale(1.08);
+}
+
+/* Hearts covering the entire background */
+.hearts {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: space-around;
+
+    font-size: 35px;
+    line-height: 2;
+    word-spacing: 15px;
+
+    opacity: 0.45;
+}
+
+/* Keep page content above the hearts */
+#page2 h1,
+#page2 .penguin,
+#page2 button {
+    z-index: 1;
+}
+
+/* Tablet screens */
+@media (max-width: 850px) {
+    #page2 h1 {
+        font-size: 30px;
+    }
+
+    #page2 .penguin {
+        width: 220px;
+    }
+}
+
+/* Mobile screens */
+@media (max-width: 600px) {
+    #page2 {
+        padding: 15px;
+        gap: 18px;
+    }
+
+    #page2 h1 {
+        font-size: 26px;
+    }
+
+    #page2 .penguin {
+        width: 190px;
+    }
+
+    #page2 button {
+        padding: 12px 25px;
+        font-size: 16px;
+    }
+
+    .hearts {
+        font-size: 23px;
+        line-height: 2;
+        word-spacing: 8px;
+        opacity: 0.45;
+    }
+}

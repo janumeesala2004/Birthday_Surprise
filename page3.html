@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Choose a Penguin 🐧</title>
+
+    <link rel="stylesheet" href="page3.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <section class="page active" id="page3">
+
+        <!-- Hearts covering the entire background -->
+        <div class="hearts" aria-hidden="true">
+            💗 💖 💕 💞 💓 💗 💖 💕 💞 💓 💗 💖 💕 💞 💓
+            💖 💗 💞 💕 💓 💖 💗 💞 💕 💓 💗 💖 💕 💞 💓
+            💗 💖 💕 💞 💓 💗 💖 💕 💞 💓 💗 💖 💕 💞 💓
+            💖 💗 💞 💕 💓 💖 💗 💞 💕 💓 💗 💖 💕 💞 💓
+            💗 💖 💕 💞 💓 💗 💖 💕 💞 💓 💗 💖 💕 💞 💓
+            💖 💗 💞 💕 💓 💖 💗 💞 💕 💓 💗 💖 💕 💞 💓
+            💗 💖 💕 💞 💓 💗 💖 💕 💞 💓 💗 💖 💕 💞 💓
+            💖 💗 💞 💕 💓 💖 💗 💞 💕 💓 💗 💖 💕 💞 💓
+            💗 💖 💕 💞 💓 💗 💖 💕 💞 💓 💗 💖 💕 💞 💓
+            💖 💗 💞 💕 💓 💖 💗 💞 💕 💓 💗 💖 💕 💞 💓
+            💗 💖 💕 💞 💓 💗 💖 💕 💞 💓 💗 💖 💕 💞 💓
+            💖 💗 💞 💕 💓 💖 💗 💞 💕 💓 💗 💖 💕 💞 💓
+            💗 💖 💕 💞 💓 💗 💖 💕 💞 💓 💗 💖 💕 💞 💓
+            💖 💗 💞 💕 💓 💖 💗 💞 💕 💓 💗 💖 💕 💞 💓
+            💗 💖 💕 💞 💓 💗 💖 💕 💞 💓 💗 💖 💕 💞 💓
+            💖 💗 💞 💕 💓 💖 💗 💞 💕 💓 💗 💖 💕 💞 💓
+        </div>
+
+        <h1>Choose a Penguin 🐧</h1>
+        <br>
+        <p>Each one has something special 💖</p>
+        <br>
+        <h2>Click on a Penguin</h2>
+
+        <div class="penguin-grid">
+
+            <!-- First penguin: Birthday message -->
+            <img
+                src="images/page3_penguin1"
+                onclick="showBirthday1()"
+                class="penguin"
+                alt="Penguin 1"
+            >
+
+            <!-- Second penguin: Surprise page -->
+            <img
+                src="images/page3_penguin2"
+                onclick="window.location.href='surprise.html'"
+                class="penguin"
+                alt="Penguin 2"
+            >
+
+            <!-- Third penguin: Miss you page -->
+            <img
+                src="images/page3_penguin3"
+                onclick="window.location.href='missyou.html'"
+                class="penguin"
+                alt="Penguin 3"
+            >
+
+        </div>
+
+    </section>
+
+</body>
+</html>

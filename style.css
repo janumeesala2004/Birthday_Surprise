@@ -1,0 +1,186 @@
+
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Main page */
+body {
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background-color: #f098c2;
+}
+
+/* Hide inactive pages */
+.page {
+    display: none;
+    font-size: 18px;
+    color: #b00050;
+    font-weight: bolder;
+}
+
+/* Active page */
+.page.active {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    min-height: 100vh;
+    width: 100%;
+    padding: 30px 20px;
+
+    text-align: center;
+    gap: 15px;
+
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+}
+
+/* Page 1 pink gradient background */
+#page1 {
+    background: linear-gradient(
+        135deg,
+        #f3afd0,
+        #ffe0ed,
+        #f3afd0
+    );
+}
+
+/* Heading */
+#page1 h1 {
+    color: #b00050;
+    font-size: 35px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Message */
+#page1 p {
+    color: #b00050;
+    font-size: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Penguin image */
+.penguin {
+    width: 200px;
+    max-width: 70vw;
+    height: auto;
+    object-fit: contain;
+
+    position: relative;
+    z-index: 1;
+}
+
+/* Button group */
+.button-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+
+    position: relative;
+    z-index: 1;
+}
+
+/* Button design */
+button {
+    display: inline-block;
+
+    padding: 12px 25px;
+    margin: 5px;
+
+    border: 2px solid white;
+    color: white;
+    border-radius: 50px;
+
+    background-color: #ff4f91;
+
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+
+    transition: 0.3s ease;
+}
+
+/* Button hover effect */
+.button-group button:hover {
+    background-color: #e6005c;
+    transform: scale(1.08);
+}
+
+/* Hearts covering the entire background */
+.hearts {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: space-around;
+
+    font-size: 35px;
+    line-height: 2;
+    word-spacing: 15px;
+
+    opacity: 0.4;
+}
+
+/* Tablet screens */
+@media (max-width: 850px) {
+    #page1 h1 {
+        font-size: 30px;
+    }
+
+    #page1 p {
+        font-size: 18px;
+    }
+
+    .penguin {
+        width: 180px;
+    }
+}
+
+/* Mobile screens */
+@media (max-width: 600px) {
+    .page.active {
+        padding: 20px 12px;
+        gap: 15px;
+    }
+
+    #page1 h1 {
+        font-size: 26px;
+    }
+
+    #page1 p {
+        font-size: 17px;
+    }
+
+    .penguin {
+        width: 160px;
+    }
+
+    .button-group {
+        gap: 8px;
+    }
+
+    button {
+        padding: 10px 22px;
+        font-size: 16px;
+    }
+
+    .hearts {
+        font-size: 23px;
+        line-height: 2;
+        word-spacing: 8px;
+        opacity: 0.45;
+    }
+}

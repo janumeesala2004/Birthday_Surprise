@@ -1,0 +1,277 @@
+
+/* =================================
+   PAGE 5: BIRTHDAY WISHES
+================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#page5 {
+    background: linear-gradient(
+        135deg,
+        rgb(240, 152, 194),
+        #ffe0ed,
+        rgb(240, 152, 194)
+    );
+
+    min-height: 10px;
+   
+    padding: 35px 20px 130px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+    gap: 25px;
+    color: #b00050;
+
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+/* =================================
+   MAIN HEADING
+================================= */
+
+#page5 h1 {
+    color: #b00050;
+    font-size: 34px;
+    text-shadow: 2px 2px 4px white;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+/* =================================
+   PHOTO AND MESSAGE CONTAINER
+================================= */
+
+#page5 .birthday-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    gap: 40px;
+    width: 100%;
+    max-width: 1150px;
+    position: relative;
+}
+
+/* =================================
+   CIRCLE-SHAPED PHOTO
+================================= */
+
+#page5 .circle-photo {
+    width: 420px;
+    height: 420px;
+
+    flex-shrink: 0;
+    border-radius: 50%;
+    overflow: hidden;
+
+    border: 6px solid white;
+    box-shadow: 0 6px 18px rgba(176, 0, 80, 0.3);
+
+    transition: transform 0.3s ease;
+}
+
+#page5 .circle-photo img {
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Photo hover effect */
+#page5 .circle-photo:hover {
+    transform: scale(1.03);
+}
+
+/* =================================
+   BIRTHDAY MESSAGE BOX
+================================= */
+
+#page5 .msg {
+    background-color: rgba(255, 255, 255, 0.9);
+
+    padding: 30px;
+    border-radius: 25px;
+
+    width: 100%;
+    max-width: 450px;
+
+    box-shadow: 0 5px 15px rgba(176, 0, 80, 0.2);
+    border: 3px solid #ffb6d2;
+}
+
+#page5 .msg p {
+    color: #8f1749;
+    font-size: 19px;
+    line-height: 1.7;
+    margin: 12px 0;
+}
+
+/* =================================
+   BOTTOM-LEFT IMAGE
+================================= */
+
+#page5 .bottom-image-left {
+    position: absolute;
+    bottom: 15px;
+    left: 25px;
+
+    width: 400px;
+    height: 400px;
+
+    object-fit: contain;
+}
+
+/* =================================
+   BOTTOM-RIGHT IMAGE
+================================= */
+
+#page5 .bottom-image-right {
+    position: absolute;
+    bottom: 15px;
+    right: 25px;
+
+    width: 400px;
+    height: 400px;
+
+    object-fit: contain;
+}
+
+/* =================================
+   NEXT BUTTON
+================================= */
+
+#page5 .next-button {
+    background-color: #ff4f91;
+    color: white;
+
+    padding: 14px 35px;
+    border: 2px solid white;
+    border-radius: 25px;
+
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+
+    position: relative;
+    z-index: 2;
+}
+
+#page5 .next-button:hover {
+    background-color: #e6005c;
+    transform: scale(1.06);
+}
+
+/* =================================
+   TABLET SCREEN
+================================= */
+
+@media (max-width: 900px) {
+    #page5 .circle-photo {
+        width: 340px;
+        height: 340px;
+    }
+
+    #page5 .birthday-box {
+        gap: 25px;
+    }
+
+    #page5 .msg {
+        max-width: 400px;
+    }
+}
+
+/* =================================
+   MOBILE SCREEN
+================================= */
+
+@media (max-width: 600px) {
+    #page5 {
+        padding: 30px 15px 110px;
+        gap: 20px;
+    }
+
+    #page5 h1 {
+        font-size: 25px;
+    }
+
+    #page5 .heart-decorations {
+        font-size: 22px;
+    }
+
+    #page5 .birthday-box {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    #page5 .circle-photo {
+        width: min(290px, 85vw);
+        height: min(290px, 85vw);
+    }
+
+    #page5 .msg {
+        padding: 18px;
+        width: 100%;
+    }
+
+    #page5 .msg p {
+        font-size: 16px;
+    }
+
+    #page5 .bottom-image-left,
+    #page5 .bottom-image-right {
+        width: 70px;
+        height: 70px;
+        bottom: 8px;
+    }
+
+    #page5 .bottom-image-left {
+        left: 5px;
+    }
+
+    #page5 .bottom-image-right {
+        right: 5px;
+    }
+
+    #page5 .next-button {
+        padding: 10px 22px;
+        font-size: 15px;
+    }
+     .hearts {
+        font-size: 23px;
+    }
+}
+
+
+.hearts {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: space-around;
+
+    font-size: 35px;
+    line-height: 2;
+    word-spacing: 15px;
+    opacity: 0.4;
+}

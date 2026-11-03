@@ -1,0 +1,153 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.surprise-page {
+    min-height: 100vh;
+    width: 100%;
+    padding: 30px 20px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+
+    background: linear-gradient(
+        135deg,
+        rgb(240, 152, 194),
+        #ffe0ed,
+        rgb(240, 152, 194)
+    );
+}
+
+/* HEARTS IN THE BACKGROUND */
+.hearts {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: space-around;
+
+    font-size: 35px;
+    line-height: 2;
+    word-spacing: 15px;
+    opacity: 0.4;
+}
+
+/* MAIN CONTENT */
+.surprise-content {
+    width: 100%;
+    max-width: 700px;
+    padding: 30px 25px;
+
+    background: rgba(255, 255, 255, 0.82);
+    border: 3px solid #ffb6d2;
+    border-radius: 30px;
+
+    box-shadow: 0 8px 25px rgba(176, 0, 80, 0.2);
+
+    position: relative;
+    z-index: 1;
+}
+
+/* HEADING */
+.surprise-content h1 {
+    color: #b00050;
+    font-size: 34px;
+    margin-bottom: 12px;
+}
+
+.subtitle {
+    color: #8f1749;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+/* SURPRISE IMAGE */
+.surprise-image {
+    display: block;
+    width: 280px;
+    height: 280px;
+    max-width: 100%;
+
+    margin: 20px auto;
+    object-fit: contain;
+
+    border-radius: 20px;
+}
+
+/* SURPRISE MESSAGE */
+.surprise-content h2 {
+    color: #e6005c;
+    font-size: 28px;
+    margin: 20px 0;
+}
+
+.message {
+    color: #8f1749;
+    font-size: 18px;
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+
+/* BUTTON */
+.surprise-content button {
+    background-color: #ff4f91;
+    color: white;
+
+    padding: 14px 28px;
+    border: 2px solid white;
+    border-radius: 25px;
+
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+}
+
+.surprise-content button:hover {
+    background-color: #e6005c;
+    transform: scale(1.05);
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+    .surprise-content {
+        padding: 25px 15px;
+    }
+
+    .surprise-content h1 {
+        font-size: 26px;
+    }
+
+    .surprise-content h2 {
+        font-size: 22px;
+    }
+
+    .subtitle,
+    .message {
+        font-size: 16px;
+    }
+
+    .surprise-image {
+        width: 220px;
+        height: 220px;
+    }
+
+    .hearts {
+        font-size: 23px;
+    }
+}

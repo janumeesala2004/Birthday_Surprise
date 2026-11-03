@@ -1,0 +1,318 @@
+
+/* =================================
+   PAGE 4: HAPPY BIRTHDAY
+================================= */
+
+#page4 {
+    background: linear-gradient(
+        135deg,
+        rgb(240, 152, 194),
+        #ffd6e7,
+        rgb(240, 152, 194)
+    );
+
+   
+    min-height: 669px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    color: #b00050;
+    text-decoration: solid;
+}
+
+/* Birthday content at the top */
+#page4 .birthday-content {
+    position: absolute;
+    top: 35px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 85%;
+    z-index: 2;
+}
+
+#page4 .birthday-content h1 {
+    font-size: 34px;
+    color: #b00050;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px white;
+}
+
+#page4 .birthday-content h2 {
+    font-size: 25px;
+    color: #d63384;
+    margin-bottom: 12px;
+}
+
+#page4 .birthday-content p {
+    font-size: 18px;
+    color: #8f1749;
+    margin: 8px 0;
+}
+
+/* Balloons on both sides */
+#page4 .balloon-side {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 32px;
+    line-height: 1.5;
+    z-index: 1;
+    pointer-events: none;
+}
+
+#page4 .balloon-left {
+    left: 27px;
+}
+
+#page4 .balloon-right {
+    right: 27px;
+}
+
+/* Birthday penguin image in the center */
+#page4 .birthday-image {
+    position: absolute;
+    top: 58%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 280px;
+    height: 280px;
+    max-width: 55%;
+    object-fit: contain;
+    z-index: 2;
+}
+
+/* Click Me button at bottom-right */
+#page4 .click-button {
+    position: absolute;
+    right: 300px;
+    bottom: 100px;
+    padding: 14px 28px;
+    border: none;
+    border-radius: 25px;
+    background-color: #ff4f91;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, background-color 0.3s;
+    z-index: 3;
+}
+
+#page4 .click-button:hover {
+    background-color: #e6005c;
+    transform: scale(1.08);
+}
+
+/* Mobile screen adjustments */
+@media (max-width: 600px) {
+    #page4 .birthday-content {
+        top: 25px;
+        width: 78%;
+    }
+
+    #page4 .birthday-content h1 {
+        font-size: 23px;
+    }
+
+    #page4 .birthday-content h2 {
+        font-size: 19px;
+    }
+
+    #page4 .birthday-content p {
+        font-size: 14px;
+    }
+
+    #page4 .balloon-side {
+        width: 30px;
+        font-size: 22px;
+    }
+
+    #page4 .balloon-left {
+        left: 27px;
+    }
+
+    #page4 .balloon-right {
+        right: 27px;
+    }
+
+    #page4 .birthday-image {
+        top: 60%;
+        width: 220px;
+        height: 220px;
+        max-width: 65%;
+    }
+
+    #page4 .click-button {
+        right: 15px;
+        bottom: 20px;
+        padding: 12px 20px;
+        font-size: 16px;
+    }
+}
+
+
+
+/* Date to the right of the birthday image */
+#page4 .birthday-date {
+    position: absolute;
+    top: 55%;
+    left: calc(50% + 160px);
+    transform: translateY(-50%);
+
+    background-color: #ff4f91;
+    color: white;
+    padding: 12px 20px;
+    border: 3px solid white;
+    border-radius: 25px;
+
+    font-size: 20px;
+    text-align: center;
+    white-space: nowrap;
+    box-shadow: 0 4px 10px rgba(176, 0, 80, 0.25);
+    z-index: 3;
+}
+
+/* Adjust date on mobile screens */
+@media (max-width: 600px) {
+    #page4 .birthday-date {
+        top: 78%;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 15px;
+        padding: 8px 14px;
+    }
+}
+
+/* =================================
+   BALLOONS ON ALL FOUR SIDES
+================================= */
+
+#page4 .balloon-side {
+    position: absolute;
+    z-index: 1;
+    pointer-events: none;
+    font-size: 30px;
+    line-height: 1.5;
+}
+
+/* Left side balloons */
+#page4 .balloon-left {
+    top: 0;
+    bottom: 0;
+    left: 5px;
+    width: 45px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 27px;
+}
+
+/* Right side balloons */
+#page4 .balloon-right {
+    top: 0;
+    bottom: 0;
+    right: 5px;
+    width: 45px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 27px;
+}
+
+/* Top balloon border */
+#page4::before {
+    content: "🎈 🎈 🎈 🎈 🎈 🎈 🎈 🎈 🎈 🎈 🎈 🎈 🎈 🎈 🎈 🎈 🎈 🎈 🎈 🎈 🎈 🎈 🎈 🎈 🎈 🎈 🎈 🎈 🎈 🎈 🎈 🎈 🎈 🎈 🎈 🎈 🎈 🎈 🎈 🎈 🎈 🎈 🎈 🎈";
+    position: absolute;
+    top: 5px;
+    left: 55px;
+    right: 55px;
+    height: 45px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 27px;
+    white-space: nowrap;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Bottom balloon border */
+#page4::after {
+    content: "🎈 🎈 🎈 🎈 🎈 🎈 🎈 🎈 🎈 🎈 🎈 🎈 🎈 🎈 🎈 🎈 🎈 🎈 🎈 🎈 🎈 🎈 🎈 🎈 🎈 🎈 🎈 🎈 🎈 🎈 🎈 🎈 🎈 🎈 🎈 🎈 🎈 🎈 🎈 🎈 🎈 🎈 🎈";
+    position: absolute;
+    bottom: 5px;
+    left: 55px;
+    right: 55px;
+    height: 45px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 27px;
+    white-space: nowrap;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Keep birthday text and image above decorations */
+#page4 .birthday-content,
+#page4 .birthday-image,
+#page4 .click-button {
+    z-index: 2;
+}
+
+/* Mobile screens */
+@media (max-width: 600px) {
+     .hearts {
+        font-size: 23px;
+    }
+    #page4 .balloon-side {
+        font-size: 21px;
+    }
+
+    #page4 .balloon-left {
+        left: 0;
+        width: 28px;
+    }
+
+    #page4 .balloon-right {
+        right: 0;
+        width: 28px;
+    }
+
+    #page4::before,
+    #page4::after {
+        left: 30px;
+        right: 30px;
+        font-size: 17px;
+        overflow: hidden;
+    }
+}
+
+.hearts {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: space-around;
+
+    font-size: 35px;
+    line-height: 2;
+    word-spacing: 15px;
+    opacity: 0.4;
+}
