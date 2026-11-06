@@ -1,22 +1,39 @@
 
-/* Reset default styles */
+/* =====================================
+   GLOBAL RESET
+===================================== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Main page */
-.gallery-page {
-    min-height: 100vh;
+html, body {
     width: 100%;
-    padding: 25px 15px;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* =====================================
+   MAIN GALLERY PAGE
+===================================== */
+.gallery-page {
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+
+    padding: 15px 20px;
 
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 25px;
+
+    gap: 12px;
 
     position: relative;
     isolation: isolate;
@@ -24,32 +41,21 @@
 
     background: linear-gradient(
         135deg,
-        #f098c2,
-        #ffe0ed,
-        #f098c2
+        #f8c4dc,
+        #fff0f6,
+        #f7b5d2,
+        #ffe3ef
     );
 }
 
-.hearts {
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-    pointer-events: none;
-
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-content: space-around;
-
-    font-size: 35px;
-    line-height: 2;
-    word-spacing: 15px;
-    opacity: 0.4;
-}
-/* Hearts covering the entire background */
+/* =====================================
+   HEART BACKGROUND
+===================================== */
+.hearts,
 .heart-background {
     position: absolute;
     inset: 0;
+
     z-index: -1;
     pointer-events: none;
 
@@ -58,231 +64,313 @@
     justify-content: space-around;
     align-content: space-around;
 
-    font-size: 35px;
-    line-height: 2;
+    padding: 10px;
+
+    font-size: 28px;
+    line-height: 2.5;
     word-spacing: 15px;
-    opacity: 0.5;
+
+    opacity: 0.25;
 }
 
-/* Original five-picture arrangement */
+/* =====================================
+   MAIN GALLERY GRID
+===================================== */
 .gallery-grid {
-    width: 100%;
-    max-width: 950px;
-    min-height: 500px;
+    width: min(100%, 900px);
 
     display: grid;
+
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    grid-template-rows: repeat(3, minmax(0, 1fr));
+    grid-template-rows: repeat(3, auto);
 
     justify-items: center;
     align-items: center;
-    gap: 15px;
+
+    gap: clamp(10px, 2vw, 22px);
 
     position: relative;
     z-index: 1;
 }
 
-/* Original picture styling */
+/* =====================================
+   MAIN FIVE PICTURES
+===================================== */
 .gallery-grid img {
-    width: 200px;
-    height: 200px;
-    max-width: 100%;
+    width: 100%;
+    max-width: 190px;
+
+    aspect-ratio: 1 / 1;
+    height: auto;
 
     object-fit: cover;
-    object-position: center;
 
-    border: 5px solid white;
-    border-radius: 20px;
+    padding: 5px;
+    background: white;
 
-    box-shadow: 0 5px 15px rgba(176, 0, 80, 0.3);
+    border-radius: 16px;
+
+    box-shadow: 0 6px 18px rgba(176, 0, 80, 0.22);
+
     transition: transform 0.3s ease;
 }
 
-/* Original hover effect */
 .gallery-grid img:hover {
-    transform: scale(1.05);
+    transform: scale(1.06);
 }
 
-/* Original top picture */
+/* Top picture */
 .gallery-grid img:nth-child(1) {
     grid-column: 2;
     grid-row: 1;
 }
 
-/* Original left picture */
+/* Left picture */
 .gallery-grid img:nth-child(2) {
     grid-column: 1;
     grid-row: 2;
 }
 
-/* Original middle picture */
+/* Center circular picture */
 .gallery-grid img:nth-child(3) {
     grid-column: 2;
     grid-row: 2;
 
+    max-width: 205px;
+
     border-radius: 50%;
-    border: 6px solid #ff4f91;
+    border: 5px solid #ff4f91;
 }
 
-/* Original right picture */
+/* Right picture */
 .gallery-grid img:nth-child(4) {
     grid-column: 3;
     grid-row: 2;
 }
 
-/* Original bottom picture */
+/* Bottom picture */
 .gallery-grid img:nth-child(5) {
     grid-column: 2;
     grid-row: 3;
 }
 
-/* Four additional corner pictures */
+/* =====================================
+   FOUR CORNER PICTURES
+===================================== */
 .corner {
     position: absolute;
-    width: 200px;
-    height: 200px;
+
+    width: clamp(100px, 12vw, 150px);
+    aspect-ratio: 1 / 1;
+    height: auto;
 
     object-fit: cover;
-    border: 5px solid white;
-    border-radius: 20px;
 
-    box-shadow: 0 5px 15px rgba(176, 0, 80, 0.3);
+    padding: 5px;
+    background: white;
+
+    border-radius: 15px;
+
+    box-shadow: 0 6px 18px rgba(176, 0, 80, 0.2);
+
     z-index: 2;
 
     transition: transform 0.3s ease;
 }
 
-/* Top-left corner */
+/* Corner positions */
 .corner.top-left {
-    top: 30px;
-    left: 30px;
+    top: 15px;
+    left: 15px;
+    transform: rotate(-5deg);
 }
 
-/* Top-right corner */
 .corner.top-right {
-    top: 30px;
-    right: 30px;
+    top: 15px;
+    right: 15px;
+    transform: rotate(5deg);
 }
 
-/* Bottom-left corner */
 .corner.bottom-left {
-    bottom: 30px;
-    left: 30px;
+    bottom: 15px;
+    left: 15px;
+    transform: rotate(5deg);
 }
 
-/* Bottom-right corner */
 .corner.bottom-right {
-    bottom: 30px;
-    right: 30px;
+    bottom: 15px;
+    right: 15px;
+    transform: rotate(-5deg);
 }
 
-/* Corner picture hover */
 .corner:hover {
-    transform: scale(1.05);
+    transform: scale(1.06);
 }
 
-/* Back button - right side, vertically centered */
+/* =====================================
+   BACK BUTTON
+===================================== */
 .back-button {
-    position: absolute;
-    right: 25px;
-    top: 50%;
-    transform: translateY(-50%);
+    position: relative;
     z-index: 3;
 
-    padding: 12px 25px;
+    padding: 11px 32px;
 
-    background: #ff4f91;
+    background: linear-gradient(
+        135deg,
+        #ff5c9d,
+        #e6005c
+    );
+
     color: white;
 
     border: 2px solid white;
-    border-radius: 25px;
+    border-radius: 50px;
 
-    font-size: 17px;
+    font-size: 16px;
     font-weight: bold;
+
     cursor: pointer;
 
-    transition: background 0.3s ease;
+    box-shadow: 0 5px 15px rgba(176, 0, 80, 0.2);
+
+    transition: all 0.3s ease;
 }
 
-/* Back button hover */
 .back-button:hover {
-    background: #e6005c;
+    background: #b00050;
+    transform: translateY(-3px);
 }
 
-/* Tablet screens */
-@media (max-width: 850px) {
+/* =====================================
+   LAPTOP SCREENS
+===================================== */
+@media (min-width: 1025px) {
+
+    .gallery-page {
+        padding: 15px 20px;
+        gap: 12px;
+    }
+
     .gallery-grid {
-        max-width: 600px;
-        min-height: 420px;
-        gap: 10px;
+        width: min(100%, 850px);
+        gap: 16px;
     }
 
     .gallery-grid img {
-        width: 150px;
-        height: 150px;
+        max-width: 190px;
+    }
+
+    .gallery-grid img:nth-child(3) {
+        max-width: 205px;
     }
 
     .corner {
-        width: 100px;
-        height: 100px;
-        border-width: 3px;
+        width: clamp(110px, 12vw, 145px);
+    }
+}
+
+/* =====================================
+   TABLET SCREENS
+===================================== */
+@media (min-width: 601px) and (max-width: 1024px) {
+
+    .gallery-page {
+        padding: 15px 15px;
+        gap: 12px;
+    }
+
+    .gallery-grid {
+        width: min(100%, 620px);
+        gap: 12px;
+    }
+
+    .gallery-grid img {
+        max-width: 155px;
+        padding: 4px;
+    }
+
+    .gallery-grid img:nth-child(3) {
+        max-width: 165px;
+        border-width: 5px;
+    }
+
+    .corner {
+        width: 85px;
+        padding: 3px;
+        border-radius: 11px;
     }
 
     .corner.top-left,
     .corner.top-right {
-        top: 12px;
+        top: 10px;
     }
 
     .corner.bottom-left,
     .corner.bottom-right {
-        bottom: 12px;
+        bottom: 10px;
     }
 
     .corner.top-left,
     .corner.bottom-left {
-        left: 12px;
+        left: 10px;
     }
 
     .corner.top-right,
     .corner.bottom-right {
-        right: 12px;
-    }
-
-    .back-button {
-        right: 12px;
-        padding: 10px 18px;
-        font-size: 15px;
+        right: 10px;
     }
 }
 
-/* Mobile screens */
-@media (max-width: 520px) {
+/* =====================================
+   MOBILE SCREENS
+===================================== */
+@media (max-width: 600px) {
+
     .gallery-page {
-        padding: 20px 8px;
-        gap: 15px;
+        width: 100%;
+        height: 100vh;
+        height: 100dvh;
+
+        padding: 12px 10px;
+
+        justify-content: center;
+        gap: 14px;
     }
 
     .gallery-grid {
-        min-height: 340px;
-        gap: 5px;
+        width: min(100%, 440px);
+
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-template-rows: repeat(3, auto);
+
+        gap: clamp(8px, 2.5vw, 14px);
     }
 
+    /* Increase mobile image size */
     .gallery-grid img {
-        width: min(27vw, 105px);
-        height: min(27vw, 105px);
-        border-width: 3px;
+        width: 100%;
+        max-width: 125px;
+
+        aspect-ratio: 1 / 1;
+
+        padding: 4px;
+        border-radius: 13px;
     }
 
+    /* Larger center image */
     .gallery-grid img:nth-child(3) {
-        border-width: 4px;
+        max-width: 135px;
+        border: 5px solid #ff4f91;
+        border-radius: 50%;
     }
 
-    /* Smaller corner pictures on mobile */
+    /* Bigger corner images */
     .corner {
-        width: 65px;
-        height: 65px;
-        border-width: 3px;
-        border-radius: 12px;
+        width: clamp(58px, 17vw, 78px);
+
+        padding: 3px;
+        border-radius: 10px;
     }
 
     .corner.top-left,
@@ -305,23 +393,108 @@
         right: 8px;
     }
 
+    .hearts,
     .heart-background {
-        font-size: 25px;
-        opacity: 0.45;
+        font-size: 20px;
+        line-height: 2;
+        opacity: 0.22;
     }
 
     .back-button {
-        right: 8px;
-        top: auto;
-        bottom: 85px;
-        transform: none;
-
-        padding: 9px 12px;
-        font-size: 13px;
-    }
-
-    .hearts {
-        font-size: 23px;
+        padding: 10px 28px;
+        font-size: 15px;
+        margin-top: 3px;
     }
 }
 
+/* =====================================
+   SMALL MOBILE SCREENS
+===================================== */
+@media (max-width: 380px) {
+
+    .gallery-page {
+        padding: 8px;
+        gap: 10px;
+    }
+
+    .gallery-grid {
+        width: min(100%, 340px);
+        gap: 7px;
+    }
+
+    .gallery-grid img {
+        max-width: 105px;
+        padding: 3px;
+    }
+
+    .gallery-grid img:nth-child(3) {
+        max-width: 115px;
+        border-width: 4px;
+    }
+
+    .corner {
+        width: 52px;
+        padding: 2px;
+    }
+
+    .back-button {
+        padding: 9px 24px;
+        font-size: 14px;
+    }
+}
+
+/* =====================================
+   SHORT LAPTOP / LANDSCAPE SCREENS
+===================================== */
+@media (max-height: 650px) {
+
+    .gallery-page {
+        padding-top: 8px;
+        padding-bottom: 8px;
+        gap: 8px;
+    }
+
+    .gallery-grid {
+        width: min(100%, 750px);
+        gap: 9px;
+    }
+
+    .gallery-grid img {
+        max-width: min(17vw, 135px);
+    }
+
+    .gallery-grid img:nth-child(3) {
+        max-width: min(18vw, 145px);
+    }
+
+    .corner {
+        width: clamp(55px, 10vh, 85px);
+    }
+
+    .back-button {
+        padding: 8px 24px;
+        font-size: 14px;
+    }
+}
+
+/* =====================================
+   EXTRA SHORT MOBILE LANDSCAPE
+===================================== */
+@media (max-height: 450px) and (orientation: landscape) {
+
+    .gallery-grid {
+        width: min(60vw, 420px);
+    }
+
+    .gallery-grid img {
+        max-width: 75px;
+    }
+
+    .gallery-grid img:nth-child(3) {
+        max-width: 85px;
+    }
+
+    .corner {
+        width: 45px;
+    }
+}
