@@ -1,27 +1,36 @@
 
-/* Reset default styles */
+/* ==============================
+   GLOBAL RESET
+================================ */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Main page */
+html, body {
+    width: 100%;
+    min-height: 100%;
+}
+
 body {
     min-height: 100vh;
-    font-family: Arial, sans-serif;
-    background-color: #f098c2;
+    font-family: 'Arial', sans-serif;
+    background: #f098c2;
 }
 
-/* Hide inactive pages */
+/* ==============================
+   PAGE DESIGN
+================================ */
 .page {
     display: none;
-    font-size: 18px;
+    width: 100%;
+    min-height: 100vh;
     color: #b00050;
-    font-weight: bolder;
+    font-size: 18px;
+    font-weight: bold;
 }
 
-/* Active page */
 .page.active {
     display: flex;
     flex-direction: column;
@@ -30,95 +39,136 @@ body {
 
     min-height: 100vh;
     width: 100%;
-    padding: 30px 20px;
+
+    padding: clamp(25px, 5vh, 50px) 20px;
+    gap: clamp(15px, 2.5vh, 25px);
 
     text-align: center;
-    gap: 15px;
-
     position: relative;
     isolation: isolate;
     overflow: hidden;
 }
 
-/* Page 1 pink gradient background */
+/* ==============================
+   BACKGROUND
+================================ */
 #page1 {
     background: linear-gradient(
         135deg,
-        #f3afd0,
-        #ffe0ed,
-        #f3afd0
+        #f8c4dc,
+        #fff0f6,
+        #f7b5d2,
+        #ffe3ef
     );
 }
 
-/* Heading */
+/* ==============================
+   HEADING
+================================ */
 #page1 h1 {
     color: #b00050;
-    font-size: 35px;
+    font-size: clamp(26px, 4vw, 42px);
+    font-weight: 800;
+    line-height: 1.3;
+    max-width: 900px;
     position: relative;
-    z-index: 1;
+    z-index: 2;
 }
 
-/* Message */
+/* ==============================
+   MESSAGE
+================================ */
 #page1 p {
-    color: #b00050;
-    font-size: 20px;
+    color: #a9004d;
+    font-size: clamp(16px, 2vw, 22px);
+    line-height: 1.6;
+    max-width: 650px;
+    padding: 0 10px;
     position: relative;
-    z-index: 1;
+    z-index: 2;
 }
 
-/* Penguin image */
+/* ==============================
+   PENGUIN IMAGE
+================================ */
 .penguin {
-    width: 200px;
-    max-width: 70vw;
+    width: clamp(140px, 22vw, 220px);
+    max-width: 75%;
     height: auto;
     object-fit: contain;
 
     position: relative;
-    z-index: 1;
+    z-index: 2;
+
+    filter: drop-shadow(0 8px 12px rgba(176, 0, 80, 0.12));
+    transition: transform 0.3s ease;
 }
 
-/* Button group */
+.penguin:hover {
+    transform: translateY(-6px);
+}
+
+/* ==============================
+   BUTTON GROUP
+================================ */
 .button-group {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+
     gap: 15px;
+    width: 100%;
+    max-width: 450px;
 
     position: relative;
-    z-index: 1;
+    z-index: 2;
 }
 
-/* Button design */
+/* ==============================
+   BUTTON DESIGN
+================================ */
 button {
-    display: inline-block;
-
-    padding: 12px 25px;
-    margin: 5px;
+    padding: 13px 32px;
 
     border: 2px solid white;
-    color: white;
     border-radius: 50px;
 
-    background-color: #ff4f91;
+    background: linear-gradient(
+        135deg,
+        #ff5c9d,
+        #e6005c
+    );
 
-    cursor: pointer;
-    font-size: 18px;
+    color: white;
+    font-size: 17px;
     font-weight: bold;
 
-    transition: 0.3s ease;
+    cursor: pointer;
+    min-width: 110px;
+
+    box-shadow: 0 5px 12px rgba(176, 0, 80, 0.18);
+
+    transition: all 0.3s ease;
 }
 
-/* Button hover effect */
 .button-group button:hover {
-    background-color: #e6005c;
-    transform: scale(1.08);
+    background: #b00050;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 16px rgba(176, 0, 80, 0.25);
 }
 
-/* Hearts covering the entire background */
+button:active {
+    transform: scale(0.96);
+}
+
+/* ==============================
+   HEART DECORATIONS
+================================ */
 .hearts {
     position: absolute;
     inset: 0;
+
     z-index: -1;
     pointer-events: none;
 
@@ -127,60 +177,162 @@ button {
     justify-content: space-around;
     align-content: space-around;
 
-    font-size: 35px;
-    line-height: 2;
+    padding: 10px;
+
+    font-size: clamp(18px, 3vw, 32px);
+    line-height: 2.5;
     word-spacing: 15px;
 
-    opacity: 0.4;
+    opacity: 0.25;
 }
 
-/* Tablet screens */
-@media (max-width: 850px) {
-    #page1 h1 {
-        font-size: 30px;
-    }
+/* ==============================
+   TABLET SCREENS
+================================ */
+@media (min-width: 601px) and (max-width: 1024px) {
 
-    #page1 p {
-        font-size: 18px;
-    }
-
-    .penguin {
-        width: 180px;
-    }
-}
-
-/* Mobile screens */
-@media (max-width: 600px) {
     .page.active {
-        padding: 20px 12px;
-        gap: 15px;
+        padding: 35px 35px;
+        gap: 22px;
     }
 
     #page1 h1 {
-        font-size: 26px;
+        font-size: clamp(30px, 4vw, 38px);
     }
 
     #page1 p {
-        font-size: 17px;
+        font-size: 19px;
+        max-width: 600px;
     }
 
     .penguin {
-        width: 160px;
+        width: 190px;
     }
 
     .button-group {
-        gap: 8px;
+        gap: 18px;
     }
 
     button {
-        padding: 10px 22px;
+        padding: 13px 30px;
+        font-size: 17px;
+    }
+
+    .hearts {
+        font-size: 30px;
+        opacity: 0.3;
+    }
+}
+
+/* ==============================
+   MOBILE SCREENS
+================================ */
+@media (max-width: 600px) {
+
+    .page.active {
+        min-height: 100svh;
+        padding: 30px 18px;
+
+        gap: 18px;
+        justify-content: center;
+    }
+
+    #page1 h1 {
+        font-size: clamp(23px, 6vw, 29px);
+        line-height: 1.35;
+        padding: 0 5px;
+    }
+
+    #page1 p {
+        font-size: 16px;
+        line-height: 1.5;
+        max-width: 340px;
+    }
+
+    .penguin {
+        width: clamp(135px, 42vw, 175px);
+        max-width: 70%;
+    }
+
+    .button-group {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 10px;
+        max-width: 100%;
+    }
+
+    button {
+        min-width: 105px;
+        padding: 11px 23px;
         font-size: 16px;
     }
 
     .hearts {
+        font-size: 21px;
+        line-height: 2.3;
+        word-spacing: 7px;
+        opacity: 0.3;
+        padding: 5px;
+    }
+}
+
+/* ==============================
+   VERY SMALL MOBILE SCREENS
+================================ */
+@media (max-width: 360px) {
+
+    .page.active {
+        padding: 22px 12px;
+        gap: 14px;
+    }
+
+    #page1 h1 {
         font-size: 23px;
-        line-height: 2;
-        word-spacing: 8px;
-        opacity: 0.45;
+    }
+
+    #page1 p {
+        font-size: 15px;
+    }
+
+    .penguin {
+        width: 130px;
+    }
+
+    .button-group {
+        gap: 7px;
+    }
+
+    button {
+        min-width: 95px;
+        padding: 10px 17px;
+        font-size: 15px;
+    }
+}
+
+/* ==============================
+   LANDSCAPE MOBILE
+================================ */
+@media (max-height: 500px) and (orientation: landscape) {
+
+    .page.active {
+        min-height: 100vh;
+        padding: 15px;
+        gap: 10px;
+    }
+
+    .penguin {
+        width: 100px;
+    }
+
+    #page1 h1 {
+        font-size: 24px;
+    }
+
+    #page1 p {
+        font-size: 15px;
+    }
+
+    button {
+        padding: 8px 20px;
     }
 }
